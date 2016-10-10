@@ -21,27 +21,27 @@ public class BalanceSigned {
 
 				switch (s) {
 				case ')':
-					if (!list.get(0).equals('(')) {
+					if (!list.getFirst().equals('(')) {
 						b = false;
 						break;
 					} else {
-						list.remove(0);
+						list.removeFirst();
 					}
 					continue;
 				case ']':
-					if (!list.get(0).equals('[')) {
+					if (!list.getFirst().equals('[')) {
 						b = false;
 						break;
 					} else {
-						list.remove(0);
+						list.removeFirst();
 					}
 					continue;
 				case '}':
-					if (!list.get(0).equals('{')) {
+					if (!list.getFirst().equals('{')) {
 						b = false;
 						break;
 					} else {
-						list.remove(0);
+						list.removeFirst();
 					}
 					continue;
 				}
