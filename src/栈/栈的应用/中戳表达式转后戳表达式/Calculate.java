@@ -19,17 +19,17 @@ public class Calculate {
 			if (Expression.isoperator(c) == 0)
 				characters.addFirst(Character.toString(c));
 			else{
-				String first = characters.removeFirst();
-				String second = characters.removeFirst();
-				switch (c) {
-				case '+':
-					characters.addFirst(Integer.valueOf((Integer.valueOf(second)+Integer.valueOf(first))).toString());
-					break;
-				case '-':
-					characters.addFirst(Integer.valueOf((Integer.valueOf(second)-Integer.valueOf(first))).toString());
-					break;
-				case '*':
-					characters.addFirst(Integer.valueOf((Integer.valueOf(second)*Integer.valueOf(first))).toString());
+			Integer first = Integer.valueOf(characters.removeFirst());
+			Integer second = Integer.valueOf(characters.removeFirst());
+			switch (c) {
+			case '+':
+				characters.addFirst(((Integer)(second+first)).toString());
+				break;
+			case '-':
+				characters.addFirst(((Integer)(second-first)).toString());
+				break;
+			case '*':
+				characters.addFirst(((Integer)(second*first)).toString());
 					break;
 				default:
 					break;
