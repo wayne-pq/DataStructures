@@ -11,7 +11,6 @@ public class ENUM_1 {
     enum WEEKEND {MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY};
 
     public static void main(String[] args) {
-
         //使用枚举
         System.out.println(WEEKEND.MONDAY.toString());
 
