@@ -51,10 +51,13 @@ public class Stream_1 {
         //并行执行
         List<Integer> collect2 = list.parallelStream().filter((x) -> x > 50).collect(Collectors.toList());
 
-
         //reduce 将stream中的元素做聚合操作，比如所有数相加
         Optional<Integer> addAll = list.parallelStream().reduce((x, y) -> x + y);
 
         System.out.println("相加的和为 : " + addAll.get());
+
+        //模拟累加器
+        int sum = strings.stream().mapToInt(x -> x.length()).sum();
+        System.out.println("字符串总长度" + sum);
     }
 }
