@@ -3,6 +3,7 @@ package JDK.StreamAndLambda;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 
 /**
  * Optional的用法
@@ -40,5 +41,10 @@ public class Optional_1 {
         System.out.println("处理后的结果: " + afterMap);
 
         System.out.println("results 的大小：" + results);
+
+
+        Function<Object, Object> identity = Function.identity();
+        System.out.println(identity);
+
     }
 }
