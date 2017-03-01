@@ -17,12 +17,23 @@ public class Test_1 {
         groups.add(new Group("1321815", "70", "panqian04"));
 
 
-        //按班级分组
+        //所有人按班级分组
         Map<String, List<Group>> collect = groups.stream().collect(Collectors.groupingBy(Group::getClasses));
         Set<String> strings = collect.keySet();
         for (String s : strings) {
             System.out.println(s + ":");
             collect.get(s).forEach(x -> System.out.println(x.getName()));
+        }
+
+        System.out.println("---------------------------------");
+
+        //所有人按班级分组（名字用,连接）
+        Map<String, String> collect4 = groups.stream().collect(Collectors.groupingBy(Group::getClasses, Collectors.mapping(Group::getName, Collectors.joining(","))));
+
+        Set<String> strings4 = collect4.keySet();
+        for (String s : strings4) {
+            System.out.println(s + ":");
+            System.out.println(collect4.get(s));
         }
 
         System.out.println("---------------------------------");
@@ -60,7 +71,7 @@ public class Test_1 {
         for (String s : strings3) {
             System.out.println(s + ":");
             Optional<Group> group = collect3.get(s);
-            group.ifPresent(x-> System.out.println(x.getName()));
+            group.ifPresent(x -> System.out.println(x.getName()));
         }
 
 
