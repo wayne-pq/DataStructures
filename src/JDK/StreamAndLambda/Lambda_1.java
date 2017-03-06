@@ -1,4 +1,4 @@
-package JDK;
+package JDK.StreamAndLambda;
 
 import java.util.*;
 import java.util.function.IntBinaryOperator;
