@@ -11,7 +11,10 @@ import java.time.temporal.TemporalAdjusters;
 public class Time_1 {
     public static void main(String[] args) {
 
-        // 代替new Date()
+
+
+        // 代替System.currentTimeMillis()
+        //Instant主要是表示一个瞬时点在时间线上
         Instant start = Instant.now();
         for (int i = 0; i < 100000000; i++) {
         }
@@ -58,6 +61,7 @@ public class Time_1 {
         }
 
         //计算下个星期五(从今天开始算，今天也包括在内)
+        //LocalDate不带时区概念
         LocalDate nextFriday = now.with(TemporalAdjusters.nextOrSame(DayOfWeek.FRIDAY));
         System.out.println("下一个星期五是:" + nextFriday);
 
@@ -66,7 +70,6 @@ public class Time_1 {
         System.out.println("这个月的第一天是:" + firstDayOfMonth);
 
         //格式化时间
-        //Instant LocalDateTime 都可以表示年月日时分秒 但是Instant主要是表示一条时间轴，可以往前回溯十亿年，往后可以到公元十亿年
         LocalDateTime now1 = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年MM月dd日 HH时mm分");
         String formatTime = formatter.format(now1);
