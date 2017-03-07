@@ -60,7 +60,7 @@ public class Time_1 {
                 System.out.println("出错了");
         }
 
-        //计算下个星期五(从今天开始算，今天也包括在内)
+        //计算下个星期五(从今天开始算，如果今天是星期五，就会返回今天的日期)
         //LocalDate不带时区概念
         LocalDate nextFriday = now.with(TemporalAdjusters.nextOrSame(DayOfWeek.FRIDAY));
         System.out.println("下一个星期五是:" + nextFriday);
