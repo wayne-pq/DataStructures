@@ -3,6 +3,7 @@ package JDK.DateAndTime;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Date;
 
 /**
  * JDK8 新日期API
@@ -79,5 +80,17 @@ public class Time_1 {
         LocalDateTime parse = LocalDateTime.parse("2017年03月06日 06时56分32秒", DateTimeFormatter.ofPattern("yyyy年MM月dd日 HH时mm分ss秒"));
         System.out.println("解析的时间" + parse);
 
+        //字符串转时间1
+        LocalDate parse1 = LocalDate.parse("2017年03月06日", DateTimeFormatter.ofPattern("yyyy年MM月dd日"));
+        System.out.println("解析的时间" + parse1);
+
+        //LocalDate 转 date
+        Date from = Date.from(parse.atZone(ZoneId.of("Asia/Shanghai")).toInstant());
+        System.out.println("LocalDate 转 date：" + from);
+
+        //date 转 LocalDate
+        LocalDate date = from.toInstant().atZone(ZoneId.of("Asia/Shanghai")).toLocalDate();
+        LocalDateTime localDateTime = from.toInstant().atZone(ZoneId.of("Asia/Shanghai")).toLocalDateTime();
+        System.out.println("date 转 LocalDate：" + date + " || date 转 LocalDateTime："+localDateTime);
     }
 }
