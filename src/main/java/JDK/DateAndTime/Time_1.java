@@ -13,7 +13,6 @@ public class Time_1 {
     public static void main(String[] args) {
 
 
-
         // 代替System.currentTimeMillis()
         //Instant主要是表示一个瞬时点在时间线上
         Instant start = Instant.now();
@@ -84,13 +83,20 @@ public class Time_1 {
         LocalDate parse1 = LocalDate.parse("2017年03月06日", DateTimeFormatter.ofPattern("yyyy年MM月dd日"));
         System.out.println("解析的时间" + parse1);
 
-        //LocalDate 转 date
+        //LocalDateTime 转 date
         Date from = Date.from(parse.atZone(ZoneId.of("Asia/Shanghai")).toInstant());
-        System.out.println("LocalDate 转 date：" + from);
+        System.out.println("LocalDateTime 转 date：" + from);
 
-        //date 转 LocalDate
+        //LocalDate 转 date
+        LocalDate localDate = LocalDate.now();
+        ZoneId zone = ZoneId.systemDefault();
+        Instant instant = localDate.atStartOfDay().atZone(zone).toInstant();
+        Date date1 = Date.from(instant);
+        System.out.println("LocalDate 转 date:" + date1);
+
+        //date 转 LocalDate  || date 转 LocalDateTime
         LocalDate date = from.toInstant().atZone(ZoneId.of("Asia/Shanghai")).toLocalDate();
         LocalDateTime localDateTime = from.toInstant().atZone(ZoneId.of("Asia/Shanghai")).toLocalDateTime();
-        System.out.println("date 转 LocalDate：" + date + " || date 转 LocalDateTime："+localDateTime);
+        System.out.println("date 转 LocalDate：" + date + " || date 转 LocalDateTime：" + localDateTime);
     }
 }
