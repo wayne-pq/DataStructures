@@ -98,5 +98,15 @@ public class Time_1 {
         LocalDate date = from.toInstant().atZone(ZoneId.of("Asia/Shanghai")).toLocalDate();
         LocalDateTime localDateTime = from.toInstant().atZone(ZoneId.of("Asia/Shanghai")).toLocalDateTime();
         System.out.println("date 转 LocalDate：" + date + " || date 转 LocalDateTime：" + localDateTime);
+
+
+        //取月底时间
+        LocalDate now2 = LocalDate.of(2017, 7, 1);
+        System.out.println("这个月有 " + now2.lengthOfMonth() + " 天");
+        LocalDateTime localDateTime1 = now2.plusMonths(1).atStartOfDay().minusNanos(1);
+        Instant instant1 = localDateTime1.atZone(zone).toInstant();
+        Date from1 = Date.from(instant1);
+        System.out.println("月底"+ from1);
+
     }
 }
