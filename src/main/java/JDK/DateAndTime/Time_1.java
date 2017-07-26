@@ -2,6 +2,7 @@ package JDK.DateAndTime;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
 
@@ -24,6 +25,10 @@ public class Time_1 {
         long l = between.toMillis();
         System.out.println("程序执行了" + l + "毫秒");
 
+        //两个日期 相距天数
+        LocalDate localDate = LocalDate.now();
+        Period period = Period.between(localDate, localDate.plus(2, ChronoUnit.DAYS));
+        System.out.println("两个日期 相距天数" + period.getDays());
 
         //代替 Calendar
         LocalDate now = LocalDate.now();
@@ -88,9 +93,9 @@ public class Time_1 {
         System.out.println("LocalDateTime 转 date：" + from);
 
         //LocalDate 转 date
-        LocalDate localDate = LocalDate.now();
+        LocalDate localDate1 = LocalDate.now();
         ZoneId zone = ZoneId.systemDefault();
-        Instant instant = localDate.atStartOfDay().atZone(zone).toInstant();
+        Instant instant = localDate1.atStartOfDay().atZone(zone).toInstant();
         Date date1 = Date.from(instant);
         System.out.println("LocalDate 转 date:" + date1);
 
@@ -106,7 +111,7 @@ public class Time_1 {
         LocalDateTime localDateTime1 = now2.plusMonths(1).atStartOfDay().minusNanos(1);
         Instant instant1 = localDateTime1.atZone(zone).toInstant();
         Date from1 = Date.from(instant1);
-        System.out.println("月底"+ from1);
+        System.out.println("月底" + from1);
 
     }
 }
