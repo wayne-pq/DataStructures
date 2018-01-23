@@ -8,7 +8,11 @@ import java.util.*;
 public class WildCard {
 
     public static void main(String[] args) {
-        ArrayList<Collection> hashSets1 = new ArrayList<Collection>();
+
+//        Collection[] collections = new ArrayList[]{};
+//        ArrayList<Collection> collections1 = new ArrayList<ArrayList>();
+
+        ArrayList<Collection> hashSets1 = new ArrayList<>();
         hashSets1.add(new HashSet());
 
 
@@ -31,9 +35,8 @@ public class WildCard {
 
 //        对于 add方法，只能放List或List的子类，因为list容器泛型参数都是List的父类 不会出现问题
         list.add(new ArrayList());
+//        list.add(new HashSet());
 //        list.add(new Object());
-
-        ArrayList<? extends String> objects1 = new ArrayList<>();
 
         //    因为这个泛型参数的下限是List    所以无法确定这是个什么类型，只能返回Object
         Object object = list.get(0);
@@ -44,16 +47,17 @@ public class WildCard {
         fruits.add(new Apple());
 
         ArrayList<Collection> collections2 = new ArrayList<>();
-        collections2.add(new ArrayList());
+//        collections2.add(new ArrayList());
         ArrayList<?> objects = new ArrayList<>();
 //        ?代表持有某种特定类型 ，所以也可以是Collection，这种赋值时合法的
         objects = collections2;
         objects.add(null);
 //        objects.add(1);
+        //?代表持有某种特定类型，d但是不确定具体哪种，所以只能返回Object
         Object o = objects.get(0);
 //?代表持有某种特定类型，但是什么类型编译器并不知道，所以为了安全起见，不会让你用add方法
 //                objects.add(new Object());
-//?代表持有某种特定类型，d但是不确定具体哪种，所以只能返回Object
+
 //        Object o = objects.get(0);
 //List list1=new ArrayList();
 //List list2=(ArrayList)new ArrayList<>();

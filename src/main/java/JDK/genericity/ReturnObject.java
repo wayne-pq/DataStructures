@@ -19,10 +19,6 @@ public class ReturnObject<A, B> {
         return a;
     }
 
-//    public  A t1(A a) {
-//        return a;
-//    }
-
     @Override
     public String toString() {
         return "ReturnObject{" +
